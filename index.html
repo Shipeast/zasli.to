@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zasli.to – Rychlé doručení balíků</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== Energetický Motion Background ===== */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(-45deg, #2563eb, #7c3aed, #0ea5e9, #22c55e);
+  background-size: 400% 400%;
+  animation: gradientMove 14s ease infinite;
+  opacity: 0.35;
+  filter: blur(90px);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 100%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 0%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Liquid Glass (jen header + tlačítka) ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+}
+
+/* ===== Header ===== */
+header {
+  position: sticky;
+  top: 0;
+  margin: 14px;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cbd5f5;
+  margin-left: 18px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* ===== Hero ===== */
+.hero {
+  max-width: 900px;
+  margin: 120px auto 70px;
+  text-align: center;
+  padding: 0 20px;
+  animation: fadeUp 0.9s ease;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.hero p {
+  color: #cbd5f5;
+  font-size: 17px;
+  margin-bottom: 34px;
+}
+
+/* ===== Buttons ===== */
+button {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 26px;
+  border-radius: 14px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: rgba(255,255,255,0.18);
+}
+
+/* ===== Sections ===== */
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 36px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  text-align: center;
+}
+
+.feature h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.feature p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.feature {
+  transition: 0.25s;
+}
+
+.feature:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== CTA ===== */
+.cta {
+  text-align: center;
+  padding: 30px 20px 90px;
+}
+
+.cta h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.cta p {
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 26px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 90px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  nav {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<header class="glass">
+  <div class="logo">zasli.to</div>
+  <nav>
+    <a href="#">Služby</a>
+    <a href="#">Ceník</a>
+    <a href="#">Tracking</a>
+    <a href="#">Kontakt</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Pošli balík chytře</h1>
+  <p>Rychlé objednání, moderní sledování zásilek a férové ceny.</p>
+  <button>Odeslat zásilku</button>
+</section>
+
+<section class="section">
+  <h2>Proč zasli.to</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>⚡ Rychlost</h3>
+      <p>Doručení už od zítřka</p>
+    </div>
+    <div class="feature">
+      <h3>📦 Bezpečí</h3>
+      <p>Pojištěné zásilky</p>
+    </div>
+    <div class="feature">
+      <h3>📍 Tracking</h3>
+      <p>Sledování v reálném čase</p>
+    </div>
+    <div class="feature">
+      <h3>💳 Platba</h3>
+      <p>Jednoduše online</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Odeslání do 2 minut</h2>
+  <p>Vyplníš údaje → zaplatíš → hotovo</p>
+  <button>Začít</button>
+</section>
+
+<footer>
+  © 2026 zasli.to
+</footer>
+
+</body>
+</html>
