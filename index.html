@@ -19,27 +19,59 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== Energetický Motion Background ===== */
+/* ===== Background (STEJNÝ STYL jako první verze) ===== */
 .bg {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  background: linear-gradient(-45deg, #2563eb, #7c3aed, #0ea5e9, #22c55e);
-  background-size: 400% 400%;
-  animation: gradientMove 14s ease infinite;
-  opacity: 0.35;
-  filter: blur(90px);
+  z-index: -3;
+  background:
+    radial-gradient(circle at 20% 30%, #2563eb, transparent 40%),
+    radial-gradient(circle at 80% 70%, #7c3aed, transparent 45%),
+    radial-gradient(circle at 50% 90%, #0ea5e9, transparent 35%),
+    #0f172a;
+  animation: bgMove 22s ease-in-out infinite alternate;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 100%; }
-  50% { background-position: 100% 50%; }
-  75% { background-position: 50% 0%; }
-  100% { background-position: 0% 50%; }
+@keyframes bgMove {
+  0% {
+    background-position: 20% 30%, 80% 70%, 50% 90%;
+  }
+  50% {
+    background-position: 30% 40%, 70% 60%, 60% 80%;
+  }
+  100% {
+    background-position: 40% 20%, 60% 80%, 30% 70%;
+  }
 }
 
-/* ===== Liquid Glass (jen header + tlačítka) ===== */
+/* ===== Parcel Flow Lines ===== */
+.lines {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  opacity: 0.25;
+  animation: moveLine 12s linear infinite;
+}
+
+.line:nth-child(1) { top: 20%; animation-delay: 0s; }
+.line:nth-child(2) { top: 35%; animation-delay: 3s; }
+.line:nth-child(3) { top: 55%; animation-delay: 6s; }
+.line:nth-child(4) { top: 75%; animation-delay: 9s; }
+
+@keyframes moveLine {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0%); }
+}
+
+/* ===== Liquid Glass (jen header + buttons) ===== */
 .glass {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px) saturate(160%);
@@ -56,6 +88,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 
 .logo {
@@ -90,7 +123,7 @@ nav a:hover {
 .hero h1 {
   font-size: 48px;
   margin-bottom: 14px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.4px;
 }
 
 .hero p {
@@ -202,6 +235,10 @@ footer {
   nav {
     display: none;
   }
+
+  .line {
+    opacity: 0.15;
+  }
 }
 </style>
 </head>
@@ -209,6 +246,13 @@ footer {
 <body>
 
 <div class="bg"></div>
+
+<div class="lines">
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
 
 <header class="glass">
   <div class="logo">zasli.to</div>
@@ -230,20 +274,20 @@ footer {
   <h2>Proč zasli.to</h2>
   <div class="features">
     <div class="feature">
-      <h3>⚡ Rychlost</h3>
-      <p>Doručení už od zítřka</p>
+      <h3>Rychlé doručení</h3>
+      <p>Doručení už od následujícího dne</p>
     </div>
     <div class="feature">
-      <h3>📦 Bezpečí</h3>
-      <p>Pojištěné zásilky</p>
+      <h3>Bezpečná přeprava</h3>
+      <p>Pojištění a šetrná manipulace</p>
     </div>
     <div class="feature">
-      <h3>📍 Tracking</h3>
-      <p>Sledování v reálném čase</p>
+      <h3>Online tracking</h3>
+      <p>Sledování zásilky v reálném čase</p>
     </div>
     <div class="feature">
-      <h3>💳 Platba</h3>
-      <p>Jednoduše online</p>
+      <h3>Jednoduchá platba</h3>
+      <p>Rychlá úhrada online</p>
     </div>
   </div>
 </section>
